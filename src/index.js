@@ -1,13 +1,31 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import AppContext from './Context/AppContext';
+import { Provider } from 'react-redux';
+import { PersistGate } from 'redux-persist/lib/integration/react';
+//import { store, persistor } from './store';
+import store from './store';
+
+import LoadingScreen from './components/LoadingScreen';
+
 
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
+  <>
+  {/* <React.StrictMode> */}
+  
+    {/* <AppContext.Provider> */}
+    <Provider store={store}>
+      {/* <PersistGate loading={LoadingScreen} persistor={persistor}> */}
+        <App />
+      {/* </PersistGate> */}
+    </Provider>
+    {/* </AppContext.Provider> */}
+  {/* </React.StrictMode> */}
+  </>,
   document.getElementById('root')
 );
 
